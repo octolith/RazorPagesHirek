@@ -7,5 +7,8 @@ namespace RazorPagesHirek.Models
 {
     public class Comment
     {
+        public int ID { get; set; }
+        public string CommentText { get; set; }
+        public Article Article { get; set; }
     }
 }
