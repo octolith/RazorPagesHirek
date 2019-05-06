@@ -2,14 +2,14 @@
 @model RazorPagesHirek.Pages.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = @Html.DisplayFor(model => model.Article.Title);
 }
 
 <h1>@Html.DisplayFor(model => model.Article.Title)</h1>
 
 <div>
     <hr />
-    <p class="col-10">
+    <p class="col-11">
         @Html.DisplayFor(model => model.Article.ArticleText)
     </p>
 </div>
