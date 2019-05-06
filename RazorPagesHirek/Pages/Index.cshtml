@@ -5,38 +5,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Hírfolyam</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
+<p align="right">
+    <a asp-page="Create">Új hír felvétele</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Article[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Article[0].ArticleText)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
     <tbody>
-@foreach (var item in Model.Article) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArticleText)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Article)
+        {
+            <tr>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.ID">@Html.DisplayFor(modelItem => item.Title)</a>
+                    @* try to display the number of comments: *@
+                    @*<p>@item.Comments.Count()</p>*@
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
